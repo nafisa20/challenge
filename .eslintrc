@@ -1,19 +1,21 @@
 {
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2023,
-    "ecmaFeatures": {
-      "jsx": true
+
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2023,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "jest": true,
+        "browser": true
+    },
+    "rules":{
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off"
+
     }
-  },
-  "env": {
-    "jest": true,
-    "browser": true
-  },
-  "rules": {
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off"
-  }
 }
