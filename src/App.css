@@ -26,3 +26,14 @@ h1 {
 .product {
   max-width: 300px;
 }
+
+label {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
