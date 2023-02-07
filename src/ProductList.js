@@ -1,5 +1,27 @@
 import { useState, useEffect } from "react";
 
+export function capitaliseString(str) {
+  return str.charAt(0).toUpperCase() + str.substring(1);
+}
+
+function sortProducts(products) {
+  return products.sort(function (a, b) {
+    let sortOrder = "abcdefghijklmnopqrstuvwxyz-0123456789";
+    let indexA = sortOrder.indexOf(a.title[0].toLowerCase());
+    let indexB = sortOrder.indexOf(b.title[0].toLowerCase());
+
+    if (indexA < indexB) {
+      return -1;
+    }
+
+    if (indexA > indexB) {
+      return 1;
+    }
+
+    return 0;
+  });
+}
+
 export default function ProductList() {
   const [products, setProducts] = useState([]);
 
@@ -13,9 +35,9 @@ export default function ProductList() {
     <div>
       <h1 className="title">Products</h1>
       <div className="product-list">
-        {products.map((product) => (
+        {sortProducts(products).map((product) => (
           <div className="product" key={product.id}>
-            <p>{product.title}</p>
+            <p>{capitaliseString(product.title)}</p>
             <p>{product.description}</p>
             <p>Category: {product.category}</p>
             <p>Stock: {product.stock}</p>
