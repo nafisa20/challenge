@@ -66,7 +66,11 @@ export default function ProductList() {
       </div>
       <div className="product-list">
         {sortProducts(products).map((product) => (
-          <div className="product" key={product.id}>
+          <div
+            className="product"
+            key={product.id}
+            data-testid="product-list-item"
+          >
             <p>{capitaliseString(product.title)}</p>
             <p>{product.description}</p>
             <p>Category: {product.category}</p>
