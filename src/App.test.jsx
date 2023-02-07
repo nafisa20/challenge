@@ -32,29 +32,4 @@ describe("when there are products", () => {
     ).toBeInTheDocument();
     expect(await within(products[0]).findByText("£40")).toBeInTheDocument();
   });
-
-  // These tests don't always pass because the UI takes some time to update.
-  // it("allows the user to filter through the products by search term", async () => {
-  //   render(<App />);
-  //   userEvent.type(await screen.findByLabelText("Search"), "eau de p");
-  //   const products = await screen.findAllByTestId("product-list-item");
-  //   expect(products).toHaveLength(1);
-  //   const perfume = products[0];
-  //   expect(
-  //     within(perfume).getByText("Eau De Perfume Spray")
-  //   ).toBeInTheDocument();
-  // });
-
-  // it("allows the user to filter through the products by category", async () => {
-  //   render(<App />);
-  //   await screen.findByText("Brown Perfume");
-  //   userEvent.selectOptions(
-  //     await screen.findByLabelText("Filter by category"),
-  //     ["Smartphones"]
-  //   );
-  //   await waitForElementToBeRemoved(() => screen.getByText("Brown Perfume"));
-  //   const products = await screen.findAllByTestId("product-list-item");
-  //   expect(products).toHaveLength(5);
-  //   expect(within(products[0]).getByText('Huawei P30')).toBeInTheDocument()
-  // });
 });
