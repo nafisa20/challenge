@@ -28,10 +28,12 @@ export default function ProductList() {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then((response) => response.json())
-      .then((data) => setProducts(data.products));
-  }, []);
+    if (selectedCategory === "all") {
+      fetch("https://dummyjson.com/products")
+        .then((response) => response.json())
+        .then((data) => setProducts(data.products));
+    }
+  }, [selectedCategory]);
 
   useEffect(() => {
     if (selectedCategory !== "all") {
