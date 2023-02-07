@@ -3,7 +3,7 @@ import ProductList from "./ProductList";
 
 function App() {
   return (
-    <section aria-label="products" className="app">
+    <section aria-label="products">
       <ProductList />
     </section>
   );
