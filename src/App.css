@@ -25,6 +25,8 @@ h1 {
 
 .product {
   max-width: 300px;
+  border:1px solid black;
+  padding:0.5rem;
 }
 
 label {
