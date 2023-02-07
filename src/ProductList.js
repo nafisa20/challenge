@@ -26,6 +26,7 @@ function sortProducts(products) {
 export default function ProductList() {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     if (selectedCategory === "all") {
@@ -43,13 +44,26 @@ export default function ProductList() {
     }
   }, [selectedCategory]);
 
+  useEffect(() => {
+    fetch(`https://dummyjson.com/products/search?q=${search}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data.products);
+      });
+  }, [search]);
+
   return (
     <div>
       <h1 className="title">Products</h1>
-      <CategoryFilter
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-      />
+      <div className="filters">
+        <label>
+          Search <input onChange={(e) => setSearch(e.target.value)} />
+        </label>
+        <CategoryFilter
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+      </div>
       <div className="product-list">
         {sortProducts(products).map((product) => (
           <div className="product" key={product.id}>
