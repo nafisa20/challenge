@@ -12,7 +12,7 @@ Clone the project, change into the directory and install the dependencies. Then 
 
 ```bash
  git clone https://github.com/nafisa20/challenge.git
- cd react-challenge
+ cd challenge
  npm install
  npm start
 ```
